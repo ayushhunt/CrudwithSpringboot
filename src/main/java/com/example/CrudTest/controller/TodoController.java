@@ -2,6 +2,7 @@ package com.example.CrudTest.controller;
 
 import com.example.CrudTest.entity.Todo;
 import com.example.CrudTest.service.TodoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -18,7 +19,7 @@ public class TodoController {
     private TodoService todoService;
 
     @PostMapping("/saveTodo")
-    public long saveTodo(@RequestBody Todo todo){
+    public long saveTodo(@Valid @RequestBody Todo todo){
         return todoService.saveTodo(todo);
     }
 
